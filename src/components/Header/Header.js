@@ -28,6 +28,8 @@ const Header = () => {
                 <Link className="btn btn-ghost normal-case text-xl" to='/login'>Login</Link>
                 <Link className="btn btn-ghost normal-case text-xl" to='/register'>Register</Link>
 
+                {user?.url && <span>welcome, {user.url}</span>}
+
                 {
                     user?.email
                         ?
