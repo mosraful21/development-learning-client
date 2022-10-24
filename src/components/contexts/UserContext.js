@@ -15,22 +15,27 @@ const UserContext = ({ children }) => {
     const githubProvider = new GithubAuthProvider();
 
     const createUser = (email, password) => {
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     }
 
     const signIn = (email, password) => {
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
 
     const signInWithGoogle = () => {
+        setLoading(true);
         return signInWithPopup(auth, googleProvider);
     }
 
     const signInWithGitHub = () => {
+        setLoading(true);
         return signInWithPopup(auth, githubProvider);
     }
 
     const logOut = () => {
+        setLoading(true);
         return signOut(auth);
     }
 
