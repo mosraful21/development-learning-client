@@ -47,7 +47,7 @@ const Courses = () => {
                 {
                     courses.map(course => <div key={course.id}>
                         <div className='grid justify-items-center border-2'>
-                            <Link to={`/info/${course.id}`}>
+                            <Link to={`${course.id}`}>
                                 <img className='w-64 h-64' src={course.logo} alt="" />
                                 <h2 className='text-3xl grid justify-items-center border m-4 rounded-xl'>{course.name}</h2>
                             </Link>

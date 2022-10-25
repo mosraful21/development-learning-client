@@ -25,25 +25,32 @@ const Header = () => {
                 <Link className="btn btn-ghost normal-case text-xl" to='/'>Home</Link>
                 <Link className="btn btn-ghost normal-case text-xl" to='/courses'>Courses</Link>
                 <Link className="btn btn-ghost normal-case text-xl" to='/blog'>Blog</Link>
-                <Link className="btn btn-ghost normal-case text-xl" to='/login'>Login</Link>
-                <Link className="btn btn-ghost normal-case text-xl" to='/register'>Register</Link>
 
-                {user?.displayName && <h2 className='text-2xl font-medium'>{user.displayName}</h2>}
 
-                {user?.photoURL ?
-                    <img className='h-10 rounded-full' src={user.photoURL} alt="" />
-                    : <FaUser> </FaUser>
+                {
+                    user?.uid ?
+                        <>
+                            {user?.displayName && <h2 className='text-2xl font-medium mx-1'>{user.displayName}</h2>}
+                            {user?.photoURL ?
+                                <img className='h-8 rounded-full' src={user.photoURL} alt="" />
+                                : <FaUser> </FaUser>
+                            }
+                        </>
+                        :
+                        <>
+                            <Link className="btn btn-ghost normal-case text-xl" to='/login'>Login</Link>
+                            <Link className="btn btn-ghost normal-case text-xl" to='/register'>Register</Link>
+                        </>
                 }
-                {/* {usess?.displayName && <span>{usess.displayName}</span>} */}
+
 
                 {
                     user?.email
                         ?
-                        <button onClick={handleSignOut} className="btn btn-sm">Sign Out</button>
+                        <button onClick={handleSignOut} className="btn btn-sm mx-3">Sign Out</button>
                         :
-                        <Link to='/login'>
-                            <button className='btn btn-sm'>Log In</button>
-                        </Link>
+                        <>
+                        </>
                 }
                 <div className='ml-6'>
                     <Theme></Theme>
