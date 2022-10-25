@@ -1,11 +1,12 @@
-import React, { useContext } from 'react';
-import { AuthContext } from '../contexts/UserContext';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import logo from './banner.jpg';
 
 const Home = () => {
-    const {user} = useContext(AuthContext);
     return (
         <div>
-            <h1>This is home page for {user?.email}</h1>
+            <img className='w-full h-2/4' src={logo} alt="" />
+            <Link to='/courses'> <button className="text-3xl text-white w-full bg-pink-400 p-2">enroll now</button></Link>
         </div>
     );
 };

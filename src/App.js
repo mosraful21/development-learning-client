@@ -5,9 +5,7 @@ import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import Courses from './components/Courses/Courses';
-import FAQ from './components/FAQ/FAQ';
 import Blog from './components/Blog/Blog';
-import Theme from './components/Theme/Theme';
 import PrivateRoute from './routes/PrivateRoute';
 
 function App() {
@@ -25,10 +23,6 @@ function App() {
           element: <PrivateRoute> <Courses></Courses> </PrivateRoute>
         },
         {
-          path: '/faq',
-          element: <FAQ></FAQ>
-        },
-        {
           path: '/blog',
           element: <Blog></Blog>
         },
@@ -39,10 +33,6 @@ function App() {
         {
           path: '/register',
           element: <Register></Register>
-        },
-        {
-          path: 'theme',
-          element: <Theme></Theme>
         }
       ]
     }
