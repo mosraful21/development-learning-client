@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/UserContext';
 
 const Register = () => {
-    const { createUser, signInWithGoogle, signInWithGitHub } = useContext(AuthContext);
+    const { createUser, signInWithGoogle, signInWithGitHub, userProfile } = useContext(AuthContext);
     console.log("createUser", createUser);
     const navigate = useNavigate();
 
@@ -12,15 +12,29 @@ const Register = () => {
 
         const form = event.target;
         const name = form.fullName.value;
+        const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, email, password);
+        console.log(name, photoURL, email, password);
 
         createUser(email, password)
-            .then((result) => {
-                const user = result.user;
-                console.log("Register user : ", user);
+            .then(() => {
+                handleUserProfile(name, photoURL);
+                form.reset();
+                navigate('/courses');
             })
+            .catch((error) => {
+                console.error("error : ", error);
+            })
+    }
+
+    const handleUserProfile = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+        }
+        userProfile(profile)
+            .then(() => { })
             .catch((error) => {
                 console.error("error : ", error);
             })
@@ -28,9 +42,7 @@ const Register = () => {
 
     const handleGoogleSignIn = () => {
         signInWithGoogle()
-            .then((result) => {
-                const user = result.user;
-                console.log(user);
+            .then(() => {
                 navigate('/courses');
             })
             .catch((error) => {
@@ -65,6 +77,12 @@ const Register = () => {
                                 <span className="label-text">Full Name</span>
                             </label>
                             <input type="text" name='fullName' placeholder="full name" className="input input-bordered" required />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Photo URL</span>
+                            </label>
+                            <input type="text" name='photoURL' placeholder="photo url" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">

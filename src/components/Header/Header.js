@@ -45,7 +45,7 @@ const Header = () => {
 
 
                 {
-                    user?.email
+                    user?.uid
                         ?
                         <button onClick={handleSignOut} className="btn btn-sm mx-3">Sign Out</button>
                         :
