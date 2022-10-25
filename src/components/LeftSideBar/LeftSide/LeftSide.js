@@ -1,12 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaGoogle, FaGithub, FaFacebook, FaTwitter, FaWhatsapp, FaTwitch, FaLinkedin } from "react-icons/fa";
+import { AuthContext } from '../../contexts/UserContext';
 
 const LeftSide = () => {
+    const { signInWithGoogle } = useContext(AuthContext);
+
+    const handleGoogleSignIn = () => {
+        signInWithGoogle()
+            .then((result) => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch((error) => {
+                console.error("error : ", error);
+            })
+    }
 
     return (
         <div className='w-4/5 m-auto mt-12'>
             <div className='grid mb-10'>
-                <button className="btn btn-outline btn-accent mb-2"> <FaGoogle className='mx-2'></FaGoogle> Login with Google</button>
+                <button  onClick={handleGoogleSignIn} className="btn btn-outline btn-accent mb-2"> <FaGoogle className='mx-2'></FaGoogle> Login with Google</button>
                 <button className="btn btn-outline btn-success"> <FaGithub className='mx-2'></FaGithub> Login with GitHub</button>
             </div>
             <div className='grid'>
