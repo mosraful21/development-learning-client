@@ -47,7 +47,6 @@ const UserContext = ({ children }) => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
             setLoading(false);
-            console.log("Auth state change", currentUser);
         })
 
         return () => {

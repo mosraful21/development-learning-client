@@ -7,6 +7,7 @@ import Register from './components/Register/Register';
 import Courses from './components/Courses/Courses';
 import Blog from './components/Blog/Blog';
 import PrivateRoute from './routes/PrivateRoute';
+import Info from './components/Info/Info';
 
 function App() {
   const router = createBrowserRouter([
@@ -33,6 +34,11 @@ function App() {
         {
           path: '/register',
           element: <Register></Register>
+        },
+        {
+          path: '/info/:id',
+          element: <Info></Info>,
+          loader: ({params}) => fetch(`http://localhost:5000/info/${params.id}`)
         }
       ]
     }
