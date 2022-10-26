@@ -48,7 +48,8 @@ function App() {
 
         }
       ]
-    }
+    },
+    { path: '*', element: <h1 className='text-4xl text-center'>This route not found, Error 404</h1> }
   ])
   
   return (

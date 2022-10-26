@@ -12,7 +12,7 @@ const Checkout = () => {
     }
 
     return (
-        <div className='w-4/5 m-auto mt-12 border'>
+        <div className='lg:w-4/5 m-auto lg:mt-12 border'>
             <h1 className='text-3xl text-center font-semibold mt-4'>Course ID: {checkout.id}</h1>
             <img className='w-48 h-48 m-auto' src={checkout.image} alt="" />
             <h2 className='text-2xl text-center font-semibold mt-4'>Course Name: {checkout.title}</h2>

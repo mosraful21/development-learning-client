@@ -5,7 +5,7 @@ import swal from 'sweetalert';
 
 const Login = () => {
 
-    const { signIn } = useContext(AuthContext);
+    const { signIn, signInWithGoogle, signInWithGitHub } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/'
@@ -24,6 +24,30 @@ const Login = () => {
                 swal("Successfully login");
             })
             .catch(() => {
+                swal("Wrong Password!");
+            })
+    }
+
+    const handleGoogleSignIn = () => {
+        signInWithGoogle()
+            .then(() => {
+                navigate('/courses');
+                navigate(from, { replace: true });
+                swal("Successfully login");
+            })
+            .catch((error) => {
+                swal("Wrong Password!");
+            })
+    }
+
+    const handleGitHubSignIn = () => {
+        signInWithGitHub()
+            .then(() => {
+                navigate('/courses');
+                navigate(from, { replace: true });
+                swal("Successfully login");
+            })
+            .catch((error) => {
                 swal("Wrong Password!");
             })
     }
@@ -55,6 +79,14 @@ const Login = () => {
                             <button className="btn btn-primary">Login</button>
                         </div>
                     </form>
+                    <div className='flex justify-evenly mb-3'>
+                        <div>
+                            <button onClick={handleGoogleSignIn} className="btn btn-outline btn-success">Google</button>
+                        </div>
+                        <div>
+                            <button onClick={handleGitHubSignIn} className="btn btn-outline btn-success">GitHub</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

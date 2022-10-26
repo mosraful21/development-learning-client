@@ -32,7 +32,7 @@ const Courses = () => {
     }
 
     return (
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid lg:grid-cols-4">
 
             <div className="w-4/5 mx-auto mt-10">
                 <div className='grid mb-10'>
@@ -54,10 +54,10 @@ const Courses = () => {
                 }
             </div>
 
-            <div className="col-span-3 lg:grid grid-cols-3 gap-4 mt-10 mr-10">
+            <div className="lg:col-span-3 lg:grid grid-cols-3 w-full mx-auto mt-10">
                 {
                     courses.map(course => <div key={course.id}>
-                        <div className='grid justify-items-center border-2 mb-8 rounded-lg'>
+                        <div className='grid justify-items-center border-2 mb-8 w-4/5 m-auto rounded-lg'>
                             <Link to={`/info/${course.id}`}>
                                 <img className='w-64 h-64' src={course.logo} alt="" />
                                 <h2 className='text-3xl grid justify-items-center border m-4 rounded-xl'>{course.name}</h2>

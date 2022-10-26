@@ -1,10 +1,9 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/UserContext';
-import swal from 'sweetalert';
 
 const Register = () => {
-    const { createUser, signInWithGoogle, signInWithGitHub, userProfile } = useContext(AuthContext);
+    const { createUser, userProfile } = useContext(AuthContext);
     console.log("createUser", createUser);
     const navigate = useNavigate();
 
@@ -39,30 +38,6 @@ const Register = () => {
                 console.error("error : ", error);
             })
     }
-
-    const handleGoogleSignIn = () => {
-        signInWithGoogle()
-            .then(() => {
-                navigate('/courses');
-                swal("Successfully login");
-            })
-            .catch((error) => {
-                swal("Wrong Password!");
-            })
-    }
-
-    const handleGitHubSignIn = () => {
-        signInWithGitHub()
-            .then(() => {
-                navigate('/courses');
-                swal("Successfully login");
-            })
-            .catch((error) => {
-                swal("Wrong Password!");
-            })
-    }
-
-
 
     return (
         <div className="hero min-h-screen bg-base-200">
@@ -103,14 +78,6 @@ const Register = () => {
                             <button className="btn btn-primary">Register</button>
                         </div>
                     </form>
-                    <div className='flex justify-evenly mb-3'>
-                        <div>
-                            <button onClick={handleGoogleSignIn} className="btn btn-outline btn-success">Google</button>
-                        </div>
-                        <div>
-                            <button onClick={handleGitHubSignIn} className="btn btn-outline btn-success">GitHub</button>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
