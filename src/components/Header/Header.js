@@ -25,6 +25,7 @@ const Header = () => {
                         <Link className="btn btn-ghost normal-case text-xl" to='/'>Home</Link>
                         <Link className="btn btn-ghost normal-case text-xl" to='/courses'>Courses</Link>
                         <Link className="btn btn-ghost normal-case text-xl" to='/blog'>Blog</Link>
+                        <Link className="btn btn-ghost normal-case text-xl" to='/faq'>FAQ </Link>
                     </ul>
                 </div>
 
@@ -39,6 +40,7 @@ const Header = () => {
                     <Link className="btn btn-ghost normal-case text-xl" to='/'>Home</Link>
                     <Link className="btn btn-ghost normal-case text-xl" to='/courses'>Courses</Link>
                     <Link className="btn btn-ghost normal-case text-xl" to='/blog'>Blog</Link>
+                    <Link className="btn btn-ghost normal-case text-xl" to='/faq'>FAQ </Link>
                 </ul>
             </div>
 

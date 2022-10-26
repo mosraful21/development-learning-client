@@ -9,6 +9,7 @@ import Blog from './components/Blog/Blog';
 import PrivateRoute from './routes/PrivateRoute';
 import Info from './components/Info/Info';
 import Checkout from './components/Checkout/Checkout';
+import FAQ from './components/FAQ/FAQ';
 
 function App() {
   const router = createBrowserRouter([
@@ -27,6 +28,10 @@ function App() {
         {
           path: '/blog',
           element: <Blog></Blog>
+        },
+        {
+          path: '/faq',
+          element: <FAQ></FAQ>
         },
         {
           path: '/login',
