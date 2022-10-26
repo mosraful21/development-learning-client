@@ -21,6 +21,7 @@ const Login = () => {
             .then(() => {
                 form.reset();
                 navigate(from, { replace: true });
+                swal("Successfully login");
             })
             .catch(() => {
                 swal("Wrong Password!");

@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/UserContext';
+import swal from 'sweetalert';
 
 const Register = () => {
     const { createUser, signInWithGoogle, signInWithGitHub, userProfile } = useContext(AuthContext);
@@ -43,9 +44,10 @@ const Register = () => {
         signInWithGoogle()
             .then(() => {
                 navigate('/courses');
+                swal("Successfully login");
             })
             .catch((error) => {
-                console.error("error : ", error);
+                swal("Wrong Password!");
             })
     }
 
@@ -53,9 +55,10 @@ const Register = () => {
         signInWithGitHub()
             .then(() => {
                 navigate('/courses');
+                swal("Successfully login");
             })
             .catch((error) => {
-                console.error("error : ", error);
+                swal("Wrong Password!");
             })
     }
 
@@ -79,7 +82,7 @@ const Register = () => {
                             <label className="label">
                                 <span className="label-text">Photo URL</span>
                             </label>
-                            <input type="text" name='photoURL' placeholder="photo url" className="input input-bordered" required />
+                            <input type="text" name='photoURL' placeholder="photo url" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
@@ -102,10 +105,10 @@ const Register = () => {
                     </form>
                     <div className='flex justify-evenly mb-3'>
                         <div>
-                            <button onClick={handleGoogleSignIn} class="btn btn-outline btn-success">Google</button>
+                            <button onClick={handleGoogleSignIn} className="btn btn-outline btn-success">Google</button>
                         </div>
                         <div>
-                            <button onClick={handleGitHubSignIn} class="btn btn-outline btn-success">GitHub</button>
+                            <button onClick={handleGitHubSignIn} className="btn btn-outline btn-success">GitHub</button>
                         </div>
                     </div>
                 </div>
